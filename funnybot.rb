@@ -9,7 +9,7 @@ class Funnybot < SlackRubyBot::Bot
     client.say(text: joke, channel: data.channel)
   end
 
-  match(/^gif (?<context>\w*)$/) do |client, data, match|
+  match(/^gif (?<context>.*)$/) do |client, data, match|
     client.say(channel: data.channel, gif: match[:context])
   end
 end
