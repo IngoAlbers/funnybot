@@ -2,7 +2,7 @@ require 'open-uri'
 require 'slack-ruby-bot'
 
 class Funnybot < SlackRubyBot::Bot
-  scan('joke') do |client, data, _match|
+  scan(/joke/i) do |client, data, _match|
     response = open('https://icanhazdadjoke.com/', 'Accept' => 'application/json').read
     joke = JSON.parse(response)['joke']
 
