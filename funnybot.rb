@@ -12,6 +12,19 @@ class Funnybot < SlackRubyBot::Bot
   match(/^gif (?<context>.*)$/) do |client, data, match|
     client.say(channel: data.channel, gif: match[:context])
   end
+
+  help do
+    title 'XJ-212 Funnybot'
+    desc 'This bot is supposed to entertain humans.'
+
+    command 'joke' do
+      desc 'Tells a random joke.'
+    end
+
+    command 'gif <context>' do
+      desc 'Posts a random gif related to <context>.'
+    end
+  end
 end
 
 Funnybot.run
